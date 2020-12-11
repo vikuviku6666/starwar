@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/Styles.module.css";
-import { Accordion, Card, ListGroup, Pagination, Spinner, Nav, Navbar, Form, FormControl, Button} from "react-bootstrap";
+import { Accordion, Card, ListGroup, Pagination, Spinner} from "react-bootstrap";
 
 const Gallery = ({ characters, loading, paginate, changePage }) => {
   const handleClick = (page) => {
@@ -66,7 +66,7 @@ const Gallery = ({ characters, loading, paginate, changePage }) => {
       <Pagination>
         <Pagination.Prev  onClick={() => handleClick(changePage - 1 )} />
 
-        <Pagination.Next   onClick={() => handleClick(changePage + 1)} />
+        <Pagination.Next  onClick={() => handleClick(changePage + 1)} />
       </Pagination>
     </div>
     </>
