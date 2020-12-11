@@ -3,12 +3,11 @@ import {
   Accordion,
   Card,
   ListGroup,
-  Spinner,
   Nav,
   Navbar,
   Form,
   FormControl,
-  Button,
+ 
 } from "react-bootstrap";
 import axios from "axios";
 import styles from "../styles/Styles.module.css";
@@ -33,8 +32,12 @@ function Search() {
     characters &&
     characters.map((star, index) => {
       return (
-        <Card key= {index}>
-          <Accordion.Toggle as={Card.Header} eventKey={`${index}`}>
+        <Card key={index}>
+          <Accordion.Toggle
+            as={Card.Header}
+            eventKey={`${index}`}
+            className={styles.toggle}
+          >
             {star.name}
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={`${index}`}>
