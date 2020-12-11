@@ -1,0 +1,17 @@
+.accordiondiv{
+    margin: 50px;
+    
+}
+
+.loading{
+ margin-left: 50%;
+ margin-top: 40%;
+}
+.toggle{
+cursor: pointer;
+}
+
+.disabled{
+    opacity: 0.65;
+    cursor: not-allowed;
+}

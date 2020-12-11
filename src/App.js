@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Gallery from "./components/Gallery";
+import axios from "axios";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [characters, setCharacters] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+  const [ currentPage, setCurrentPage] = React.useState(1);
+
+  const paginate = (page) => {
+    if(page > 0 && page < 10 )
+    setCurrentPage(page);
+} 
+
+  React.useEffect(() => {
+    const fetchChar = async () => {
+      setLoading(true);
+      const response = await axios.get(
+        `https://swapi.dev/api/people/?page=${currentPage}`
+      );
+      setCharacters(response.data.results);
+      setLoading(false);
+    };
+    fetchChar();
+  }, [currentPage]);
+
+  return <Gallery characters={characters}  loading={loading} paginate = {paginate} changePage={currentPage}/>;
 }
 
 export default App;
