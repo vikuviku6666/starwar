@@ -9,9 +9,9 @@
 }
 .toggle{
 cursor: pointer;
+background-color: coral;
 }
 
-.disabled{
-    opacity: 0.65;
-    cursor: not-allowed;
+.card-header{
+background-color: coral;
 }

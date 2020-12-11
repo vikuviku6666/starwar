@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/Styles.module.css";
-import { Accordion, Card, ListGroup, Pagination, Spinner } from "react-bootstrap";
+import { Accordion, Card, ListGroup, Pagination, Spinner, Nav, Navbar, Form, FormControl, Button} from "react-bootstrap";
 
 const Gallery = ({ characters, loading, paginate, changePage }) => {
   const handleClick = (page) => {
@@ -8,7 +8,7 @@ const Gallery = ({ characters, loading, paginate, changePage }) => {
   }
   const stars = (
     <Card>
-      <Accordion.Toggle as={Card.Header} eventKey="0" className={styles.toggle}>
+      <Accordion.Toggle as={Card.Header} eventKey="0"  className={styles.toggle}>
         {characters[0] && characters[0].name}
       </Accordion.Toggle>
       <Accordion.Collapse eventKey="0">
@@ -58,15 +58,18 @@ const Gallery = ({ characters, loading, paginate, changePage }) => {
     );
   }
   return (
+    <>
+  
     <div className={styles.accordiondiv}>
       <Accordion defaultActiveKey="0">{stars}</Accordion>
 
       <Pagination>
         <Pagination.Prev  onClick={() => handleClick(changePage - 1 )} />
 
-        <Pagination.Next  onClick={() => handleClick(changePage + 1)} />
+        <Pagination.Next   onClick={() => handleClick(changePage + 1)} />
       </Pagination>
     </div>
+    </>
   );
 };
 
