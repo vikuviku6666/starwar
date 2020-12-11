@@ -7,15 +7,14 @@ import {
   Navbar,
   Form,
   FormControl,
- 
 } from "react-bootstrap";
 import axios from "axios";
 import styles from "../styles/Styles.module.css";
 function Search() {
   const [characters, setCharacters] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
-  const [searchTerm, setSearchTerm] = React.useState('');
-  
+  const [searchTerm, setSearchTerm] = React.useState("");
+
   React.useEffect(() => {
     const fetchChar = async () => {
       setLoading(true);
@@ -80,19 +79,20 @@ function Search() {
               type="text"
               placeholder="Search Name"
               className="mr-sm-2"
-              onChange={event => {setSearchTerm(event.target.value)}}
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+              }}
             />
-            
           </Form>
         </Navbar.Collapse>
-          </Navbar>
-          {(searchTerm === '') ? <span></span> : 
-            
-              <div>
-        <Accordion className={styles.accordiondiv}>{stars}</Accordion>
-      </div>
-          }
-    
+      </Navbar>
+      {searchTerm === "" ? (
+        <span></span>
+      ) : (
+        <div>
+          <Accordion className={styles.accordiondiv}>{stars}</Accordion>
+        </div>
+      )}
     </>
   );
 }
